@@ -1,0 +1,13 @@
+
+
+spring:
+  application:
+    name: procider-demo
+server:
+  port: 9092
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1.com:8081/eureka/,http://eureka2.com:8082/eureka/,http://eureka3.com:8083/eureka/
