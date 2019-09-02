@@ -12,19 +12,25 @@
     <artifactId>comsumer-demo</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-ribbon</artifactId>
-            <!--<version>1.4.4.RELEASE</version>-->
-        </dependency>
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-ribbon</artifactId>
+        <version>1.4.4.RELEASE</version>
+      </dependency>
 
-
-
-        <dependency>
+      <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
-            <!--<version>1.4.3.RELEASE</version>-->
-        </dependency>
+            <version>1.4.3.RELEASE</version>
+      </dependency>
+
+
+    <dependency>
+        <groupId>io.github.openfeign.form</groupId>
+        <artifactId>feign-form</artifactId>
+        <version>3.8.0</version>
+    </dependency>
+
 
 
     </dependencies>
