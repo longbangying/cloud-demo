@@ -8,6 +8,7 @@
         <module>provider-demo</module>
         <module>comsumer-demo</module>
         <module>commons</module>
+        <module>consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

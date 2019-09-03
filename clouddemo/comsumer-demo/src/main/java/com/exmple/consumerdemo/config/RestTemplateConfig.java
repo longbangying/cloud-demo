@@ -2,8 +2,8 @@ package com.exmple.consumerdemo.config;
 
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.*;
-import feign.codec.Encoder;
-import feign.form.spring.SpringFormEncoder;
+//import feign.codec.Encoder;
+//import feign.form.spring.SpringFormEncoder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
