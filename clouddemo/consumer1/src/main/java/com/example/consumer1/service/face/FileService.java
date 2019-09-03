@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
-@FeignClient(value = "PROVIDER-DEMO",path = "file" ,configuration = FeignFormSuportConfig.class)
+//@FeignClient(value = "PROVIDER-DEMO",path = "file" ,configuration = FeignFormSuportConfig.class)
 public interface FileService {
     @RequestMapping(value = "upload",method = RequestMethod.POST,
             consumes = {MediaType.MULTIPART_FORM_DATA_VALUE},produces = {MediaType.APPLICATION_JSON_VALUE})

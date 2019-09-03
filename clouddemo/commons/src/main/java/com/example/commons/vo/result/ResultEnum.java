@@ -4,7 +4,9 @@ public enum  ResultEnum {
 
     RESULT_SUCCESS("SUCCESS","操作成功"),
     RESULT_FAIL("FAIL","操作失败"),
-    RESULT_EXCEPTION("EXCEPTION","系统异常")
+    RESULT_EXCEPTION("EXCEPTION","系统异常"),
+
+    RESULT_SERVICE_UNAVAILABLE("SERVICE_UNAVAILABLE","服务不可用"), //服务不可用
     ;
 
     private String result_code;

@@ -6,6 +6,11 @@ public class Result {
 
     private String result_msg;
 
+    public Result() {
+        this.result_code = ResultEnum.RESULT_EXCEPTION.getResult_code();
+        this.result_msg = ResultEnum.RESULT_EXCEPTION.getResult_msg();
+    }
+
     public Result(String result_code, String result_msg) {
         this.result_code = result_code;
         this.result_msg = result_msg;

@@ -4,7 +4,12 @@ public class BaseResult<T> extends Result{
 
     private T data;
 
-    public BaseResult(ResultEnum resultEnum,T data) {
+    public BaseResult() {
+       super();
+       data = null;
+    }
+
+    public BaseResult(ResultEnum resultEnum, T data) {
         super(resultEnum);
         this.data = data;
     }

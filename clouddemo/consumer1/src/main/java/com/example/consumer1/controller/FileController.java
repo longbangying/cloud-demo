@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 public class FileController {
-    @Autowired
+    @Autowired(required = false)
     FileService fileService;
 
 

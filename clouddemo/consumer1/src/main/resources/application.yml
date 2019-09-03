@@ -22,3 +22,5 @@ feign:
     config:
       default:
         logger-level: full
+  hystrix:
+    enabled: true
