@@ -29,7 +29,7 @@ public class FileController {
      * @return
      */
     @RequestMapping("upload")
-    public Result upload(@RequestParam ("file")MultipartFile multipartFile){
+    public BaseResult<String> upload(@RequestParam ("file")MultipartFile multipartFile){
         try {
             return BaseResult.getResult(ResultEnum.RESULT_SUCCESS,fileService.storeFile(multipartFile));
         }catch (IOException ex){
@@ -44,7 +44,7 @@ public class FileController {
      * @return
      */
     @RequestMapping("uploads")
-    public Result uploads(@RequestParam("files")List<MultipartFile> multipartFiles){
+    public BaseResult<List<String>> uploads(@RequestParam("files")List<MultipartFile> multipartFiles){
         try{
             return BaseResult.getResult(ResultEnum.RESULT_SUCCESS,fileService.storeMultipleFile(multipartFiles));
         }catch (IOException ex){
