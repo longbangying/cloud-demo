@@ -68,6 +68,7 @@ public class FileServiceImpl implements FileService {
         Path targetPath = this.path.resolve(fileName);
         Files.copy(multipartFile.getInputStream(),targetPath, StandardCopyOption.REPLACE_EXISTING);
         fileName = ServletUriComponentsBuilder.fromCurrentContextPath().path("/static/").path(fileName).toUriString();
+        log.info("file-location:{}" ,fileName);
         return fileName;
     }
 

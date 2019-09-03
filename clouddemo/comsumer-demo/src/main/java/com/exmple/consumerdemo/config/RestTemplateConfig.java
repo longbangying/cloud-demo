@@ -2,6 +2,8 @@ package com.exmple.consumerdemo.config;
 
 import com.netflix.client.config.IClientConfig;
 import com.netflix.loadbalancer.*;
+import feign.codec.Encoder;
+import feign.form.spring.SpringFormEncoder;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,7 +17,14 @@ public class RestTemplateConfig {
         return new RestTemplate();
     }
 
-
+    /**
+     * 添加feign 文件上传的支持
+     * @return
+     */
+   /* @Bean
+    public Encoder springFormEncoder(){
+        return new SpringFormEncoder();
+    }*/
 
     /*@Bean
     public IRule iRule(){
