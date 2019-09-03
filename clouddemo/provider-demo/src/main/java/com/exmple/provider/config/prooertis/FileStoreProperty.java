@@ -2,7 +2,7 @@ package com.exmple.provider.config.prooertis;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "local.file.path")
+@ConfigurationProperties(prefix = "local.file")
 public class FileStoreProperty {
 
     private String storePath;

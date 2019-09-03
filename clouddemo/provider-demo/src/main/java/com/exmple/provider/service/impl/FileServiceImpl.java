@@ -8,6 +8,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -33,6 +34,14 @@ public class FileServiceImpl implements FileService {
         this.fileStoreProperty = fileStoreProperty;
         log.info(this.fileStoreProperty.getStorePath());
         path = Paths.get(this.fileStoreProperty.getStorePath()).toAbsolutePath().normalize();
+
+        File file = new File(this.fileStoreProperty.getStorePath());
+
+        if(!file.exists()){
+            file.mkdir();
+        }
+        file = null;
+
     }
 
     /**
@@ -58,7 +67,7 @@ public class FileServiceImpl implements FileService {
 
         Path targetPath = this.path.resolve(fileName);
         Files.copy(multipartFile.getInputStream(),targetPath, StandardCopyOption.REPLACE_EXISTING);
-        fileName = ServletUriComponentsBuilder.fromCurrentContextPath().path("/static").path(fileName).toUriString();
+        fileName = ServletUriComponentsBuilder.fromCurrentContextPath().path("/static/").path(fileName).toUriString();
         return fileName;
     }
 

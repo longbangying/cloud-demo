@@ -10,4 +10,9 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8080//eureka/
+      defaultZone: http://localhost:8080/eureka/
+
+
+local:
+  file:
+    store-path: d:/file-center/
