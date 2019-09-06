@@ -24,3 +24,11 @@ feign:
         logger-level: full
   hystrix:
     enabled: true
+
+
+
+management:
+    endpoints:
+      web:
+        exposure:
+          include: '*'
