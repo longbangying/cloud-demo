@@ -4,6 +4,9 @@ server:
 spring:
   application:
     name: eurekaserver
+  cloud:
+    config:
+      uri: http://localhost:9099
 
 eureka:
   instance:
@@ -13,3 +16,5 @@ eureka:
       defaultZone: http://localhost:${server.port}/eureka/
     fetch-registry: false
     register-with-eureka: false
+
+
