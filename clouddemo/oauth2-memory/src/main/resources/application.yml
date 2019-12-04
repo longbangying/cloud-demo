@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: oauth2-inmemory
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          oauth2: trace

@@ -1,12 +1,12 @@
 server:
-  port: 8080
+  port: 80
 
 spring:
   application:
     name: eurekaserver
-  cloud:
-    config:
-      uri: http://localhost:9099
+  #cloud:
+   # config:
+     # uri: http://localhost:9099
 
 eureka:
   instance:

@@ -9,7 +9,7 @@ import org.springframework.cloud.netflix.feign.EnableFeignClients;
 @SpringBootApplication(exclude = {RedisAutoConfiguration.class})
 @EnableDiscoveryClient
 @EnableFeignClients
-public class ConsumerDemoApplication {
+public class     ConsumerDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(ConsumerDemoApplication.class,args);
