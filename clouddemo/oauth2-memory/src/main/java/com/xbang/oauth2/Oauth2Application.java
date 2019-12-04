@@ -1,13 +1,11 @@
-package com.example.clouddemo;
+package com.xbang.oauth2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ClouddemoApplication {
-
+public class Oauth2Application {
     public static void main(String[] args) {
-        SpringApplication.run(ClouddemoApplication.class, args);
+        SpringApplication.run(Oauth2Application.class, args);
     }
-
 }

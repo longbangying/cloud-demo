@@ -25,8 +25,13 @@ public class TestController {
 
     @RequestMapping("feign/port")
     public Result portForFeign(@RequestParam("sleep") long sleep){
-
-        return testService.port(sleep);
+        Result result = null;
+        try {
+            result = testService.port(sleep);
+        } catch (Exception e) {
+           log.error("error:{}",e.getMessage());
+        }
+        return result;
     }
 
     /**
