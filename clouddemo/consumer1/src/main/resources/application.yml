@@ -17,6 +17,8 @@ logging:
         consumer1:
           service:
             face: debug
+
+# feign 超时配置  和 hystrix 搭配才生效
 feign:
   client:
     config:

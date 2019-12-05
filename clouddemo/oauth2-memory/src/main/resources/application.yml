@@ -8,3 +8,17 @@ logging:
       springframework:
         security:
           oauth2: trace
+
+security:
+  oauth2:
+    client:
+      client-id: xbang
+      client-secret: xbang
+      authorized-grant-types: authorization_code
+      registered-redirect-uri: http://www.baidu.com
+      scope: all
+      grant-type: refresh_token
+
+  user:
+    name: admin
+    password: xbang

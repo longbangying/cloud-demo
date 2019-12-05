@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    org:
+      springframework:
+        security:
+          oauth2: trace
+    com:
+      xbang:
+        dao: trace
+
+spring:
+  application:
+    name: oauth-server
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: Soar18786611964
+    url: jdbc:mysql://47.104.171.254:3306/security-demo?useUnicode=true&characterEncoding=gbk&zeroDateTimeBehavior=convertToNull&useSSL=false
+  main:
+    allow-bean-definition-overriding: true
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: com.xbang.oauthserver.dao.entity
+  configuration:
+    cache-enabled: true
