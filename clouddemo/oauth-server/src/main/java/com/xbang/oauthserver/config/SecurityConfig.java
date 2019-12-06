@@ -36,6 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/**").hasRole("ORDINARY")
             .and()
             .formLogin();
+        http.csrf().disable();
     }
 
 
