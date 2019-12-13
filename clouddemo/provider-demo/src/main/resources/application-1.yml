@@ -2,7 +2,7 @@
 
 spring:
   application:
-    name: procider-demo
+    name: provider-demo
 server:
   port: 9091
 
@@ -10,4 +10,6 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka1.com:8081/eureka/,http://eureka2.com:8082/eureka/,http://eureka3.com:8083/eureka/
+      defaultZone: http://eureka1.com:80/eureka/
+
+#,http://eureka2.com:8082/eureka/,http://eureka3.com:8083/eureka/

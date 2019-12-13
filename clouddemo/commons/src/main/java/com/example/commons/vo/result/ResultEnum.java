@@ -10,28 +10,22 @@ public enum  ResultEnum {
     RESULT_SERVICE_UNAVAILABLE("SERVICE_UNAVAILABLE","服务不可用"), //服务不可用
     ;
 
-    private String result_code;
+    private String resultCode;
 
-    private String result_msg;
+    private String resultMsg;
 
-    ResultEnum(String result_code, String result_msg) {
-        this.result_code = result_code;
-        this.result_msg = result_msg;
+    ResultEnum(String resultCode, String resultMsg) {
+        this.resultCode = resultCode;
+        this.resultMsg = resultMsg;
     }
 
-    public String getResult_code() {
-        return result_code;
+    public String getResultCode() {
+        return resultCode;
     }
 
-    public void setResult_code(String result_code) {
-        this.result_code = result_code;
+
+    public String getResultMsg() {
+        return resultMsg;
     }
 
-    public String getResult_msg() {
-        return result_msg;
-    }
-
-    public void setResult_msg(String result_msg) {
-        this.result_msg = result_msg;
-    }
 }

@@ -22,8 +22,6 @@ public class AuthConfig extends AuthorizationServerConfigurerAdapter {
         //在内存中构建一个clientID
         clients.inMemory()
                 .withClient("xbang").redirectUris("http://www.baidu.com").scopes("all").authorizedGrantTypes("authorization_code","refresh_token").secret(bCryptPasswordEncoder().encode("xbang"));
-
-        //clients.withClientDetails(clientDetailsService);
     }
 
     @Override

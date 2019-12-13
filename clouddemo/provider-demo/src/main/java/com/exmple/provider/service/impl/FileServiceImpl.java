@@ -37,8 +37,8 @@ public class FileServiceImpl implements FileService {
 
         File file = new File(this.fileStoreProperty.getStorePath());
 
-        if(!file.exists()){
-            file.mkdir();
+        if(!file.exists() && !file.mkdir()){
+           throw  new RuntimeException("创建文件夹失败");
         }
         file = null;
 

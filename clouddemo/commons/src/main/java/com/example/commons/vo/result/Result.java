@@ -2,37 +2,37 @@ package com.example.commons.vo.result;
 
 public class Result {
 
-    private String result_code;
+    private String resultCode;
 
-    private String result_msg;
+    private String resultMsg;
 
     public Result() {
-        this.result_code = ResultEnum.RESULT_EXCEPTION.getResult_code();
-        this.result_msg = ResultEnum.RESULT_EXCEPTION.getResult_msg();
+        this.resultCode = ResultEnum.RESULT_EXCEPTION.getResultCode();
+        this.resultMsg = ResultEnum.RESULT_EXCEPTION.getResultMsg();
     }
 
-    public Result(String result_code, String result_msg) {
-        this.result_code = result_code;
-        this.result_msg = result_msg;
+    public Result(String resultCode, String resultMsg) {
+        this.resultCode = resultCode;
+        this.resultMsg = resultMsg;
     }
 
     public Result(ResultEnum resultEnum) {
-        this(resultEnum.getResult_code(),resultEnum.getResult_msg());
+        this(resultEnum.getResultCode(),resultEnum.getResultMsg());
     }
 
-    public String getResult_code() {
-        return result_code;
+    public String getResultCode() {
+        return resultCode;
     }
 
-    public void setResult_code(String result_code) {
-        this.result_code = result_code;
+    public void setResultCode(String resultCode) {
+        this.resultCode = resultCode;
     }
 
-    public String getResult_msg() {
-        return result_msg;
+    public String getResultMsg() {
+        return resultMsg;
     }
 
-    public void setResult_msg(String result_msg) {
-        this.result_msg = result_msg;
+    public void setResultMsg(String resultMsg) {
+        this.resultMsg = resultMsg;
     }
 }

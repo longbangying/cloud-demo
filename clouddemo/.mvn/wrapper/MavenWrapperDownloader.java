@@ -17,6 +17,8 @@ specific language governing permissions and limitations
 under the License.
 */
 
+import sun.rmi.runtime.Log;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -105,10 +107,17 @@ public class MavenWrapperDownloader {
         URL website = new URL(urlString);
         ReadableByteChannel rbc;
         rbc = Channels.newChannel(website.openStream());
-        FileOutputStream fos = new FileOutputStream(destination);
-        fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
-        fos.close();
-        rbc.close();
+        FileOutputStream fos = null;
+        try {
+            fos = new FileOutputStream(destination);
+            fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+        } catch (IOException e) {
+
+        } finally {
+            fos.close();
+            rbc.close();
+        }
+
     }
 
 }

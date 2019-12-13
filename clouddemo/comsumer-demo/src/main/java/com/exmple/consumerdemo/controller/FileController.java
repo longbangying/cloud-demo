@@ -4,6 +4,7 @@ import com.example.commons.vo.result.Result;
 import com.exmple.consumerdemo.service.face.FileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,7 +24,7 @@ public class FileController {
      * @param multipartFile
      * @return
      */
-    @RequestMapping("upload")
+    @PostMapping("upload")
     public Result upload(@RequestParam("file")MultipartFile multipartFile){
         return fileService.upload(multipartFile);
     }
@@ -33,7 +34,7 @@ public class FileController {
      * @param multipartFiles
      * @return
      */
-    @RequestMapping("uploads")
+    @PostMapping("uploads")
     public Result uploads(@RequestParam("file") List<MultipartFile> multipartFiles){
         return fileService.uploads(multipartFiles);
     }

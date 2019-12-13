@@ -5,9 +5,7 @@ import com.example.commons.vo.result.Result;
 import com.example.commons.vo.result.ResultEnum;
 import com.example.consumer1.service.face.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 @RestController
@@ -16,18 +14,17 @@ public class FileController {
     FileService fileService;
 
 
-    @RequestMapping("upload")
+    @PostMapping("upload")
     public Result upload(@RequestParam("file") MultipartFile multipartFile){
-        Result result = fileService.upload(multipartFile);
-        return result;
+        return fileService.upload(multipartFile);
     }
 
-    @RequestMapping("upload1")
+    @PostMapping("upload1")
     public Result upload1(@RequestParam("file") MultipartFile multipartFile){
         String result = fileService.upload1(multipartFile);
         return BaseResult.getResult(ResultEnum.RESULT_SUCCESS,result);
     }
-    @RequestMapping("test")
+    @GetMapping("test")
     public Result test(){
         return BaseResult.getResult(ResultEnum.RESULT_SUCCESS,null);
 

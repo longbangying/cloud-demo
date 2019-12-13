@@ -3,6 +3,8 @@
 spring:
   application:
     name: provider-demo
+  profiles:
+    active: 1
 server:
   port: 9090
 

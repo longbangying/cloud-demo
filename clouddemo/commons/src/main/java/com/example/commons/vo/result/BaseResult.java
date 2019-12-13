@@ -15,8 +15,7 @@ public class BaseResult<T> extends Result{
     }
 
     public static <T> BaseResult<T> getResult(ResultEnum resultEnum,T data){
-        BaseResult baseResult = new BaseResult(resultEnum,data);
-        return baseResult;
+        return new BaseResult(resultEnum,data);
     }
 
     public T getData() {

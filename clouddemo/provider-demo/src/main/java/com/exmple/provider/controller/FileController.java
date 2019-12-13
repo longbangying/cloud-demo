@@ -1,11 +1,11 @@
 package com.exmple.provider.controller;
 
 import com.example.commons.vo.result.BaseResult;
-import com.example.commons.vo.result.Result;
 import com.example.commons.vo.result.ResultEnum;
 import com.exmple.provider.service.face.FileService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +28,7 @@ public class FileController {
      * @param multipartFile
      * @return
      */
-    @RequestMapping("upload")
+    @PostMapping("upload")
     public BaseResult<String> upload(@RequestParam ("file")MultipartFile multipartFile){
         try {
             return BaseResult.getResult(ResultEnum.RESULT_SUCCESS,fileService.storeFile(multipartFile));
@@ -43,7 +43,7 @@ public class FileController {
      * @param multipartFiles
      * @return
      */
-    @RequestMapping("uploads")
+    @PostMapping("uploads")
     public BaseResult<List<String>> uploads(@RequestParam("files")List<MultipartFile> multipartFiles){
         try{
             return BaseResult.getResult(ResultEnum.RESULT_SUCCESS,fileService.storeMultipleFile(multipartFiles));

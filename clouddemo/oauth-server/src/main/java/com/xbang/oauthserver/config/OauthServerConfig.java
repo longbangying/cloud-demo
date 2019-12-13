@@ -22,10 +22,10 @@ import javax.sql.DataSource;
 public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
-    DataSource dataSource;
+    private UserDetailsService userDetailsService;
 
     @Autowired
-    UserDetailsService userDetailsService;
+    private DataSource dataSource;
 
     @Bean
     public BCryptPasswordEncoder cryptPasswordEncoder(){
@@ -33,7 +33,7 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     @Bean
-    public ClientDetailsService clientDetailsService(){
+    public ClientDetailsService clientDetailsService(DataSource dataSource){
         JdbcClientDetailsService jdbcClientDetailsService = new JdbcClientDetailsService(dataSource);
         jdbcClientDetailsService.setPasswordEncoder(cryptPasswordEncoder());
         return jdbcClientDetailsService;
@@ -41,7 +41,7 @@ public class OauthServerConfig extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(clientDetailsService());
+        clients.withClientDetails(clientDetailsService(dataSource));
     }
 
     @Override
