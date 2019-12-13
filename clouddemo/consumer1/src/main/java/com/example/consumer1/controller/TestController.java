@@ -27,11 +27,14 @@ public class TestController {
     @GetMapping("feign/port")
     public Result portForFeign(@RequestParam("sleep") long sleep){
         Result result = null;
+        log.info("start..........................");
+        long start0 = System.currentTimeMillis();
         try {
             result = testService.port(sleep);
         } catch (Exception e) {
            log.error("error:{}",e.getMessage());
         }
+        log.info("end..........................{}",start0);
         return result;
     }
 

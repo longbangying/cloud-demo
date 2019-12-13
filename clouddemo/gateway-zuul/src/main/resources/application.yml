@@ -2,6 +2,11 @@
 spring:
   application:
     name: gateway-zuul
+  redis:
+    host: 47.104.171.254
+    port: 6379
+    password: redis
+
 
 eureka:
   client:
@@ -9,4 +14,61 @@ eureka:
       defaultZone: http://localhost:80/eureka/
 server:
   port: 8088
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+zuul:
+  #该项配置为true时   只要调用时加上参数 debug=true  则zuul会在响应头中写入一些调试信息
+  include-debug-header: true
+  #开启重试机制
+  retryable: true
+  #开启限流监控
+  ratelimit:
+    enabled: true
+    repository: redis
+    policy-list:
+      # provider 每分钟可以调3次
+      provider-demo[0]:
+          refreshInterval: 60
+          limit: 30
+      # consumer1 每分钟可以调10次
+      consumer1[0]:
+          refreshInterval: 60
+          limit: 10
+
+
+
+
+# hystrix 超时时间配置
+# 线程池隔离   超时时间 10s
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+#ribbon 超时配置   应该小于等于 hystrix 的超时时间
+ribbon:
+  #请求连接超时时间
+  #connectTimeout: 8000
+  #请求处理超时时间
+  #readTimeout: 8000
+  #重试次数 maxAutoRetries 表示访问服务集群原节点(同一台服务器)
+  maxAutoRetries: 2
+  #重试次数 maxAutoRetriesNextServer 表示访问服务集群下其余节点(换一个服务器)
+  #maxAutoRetriesNextServer: 1
+
+
+xbang:
+  zuul:
+    enable: true
+    nameList[0]: xbang
+    nameList[1]: soar
+
+
 

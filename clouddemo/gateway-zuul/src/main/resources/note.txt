@@ -1,0 +1,25 @@
+zuul:
+1.默认情况下，zuul会代理所有注册到注册中心(eureka server)的服务,并且zuul的路由规则如下
+    http://zuul_host:zuul_port/微服务在注册中心(eureka server)上的serverId/**  会被转发到 serverId 对应的服务
+
+2.zuul 默认支持客户端负载均衡(ribbon 轮询 实现)
+
+3.zuul 可搭配 spring actuator  暴露 routes 端点和 filters 端点,routes 端点可查看路由列表,filters 可查看zuul中当前所有过滤器的详情
+    需在配置文件中配置
+    management:
+      endpoints:
+        web:
+          exposure:
+            include: "*"
+    url: http://localhost:8088/actuator/routes;http://localhost:8088/actuator/filters
+4.网关限流    zuul 搭配 spring-cloud-zuul-ratelimit  可实现网关限流
+zuul.ratelimit.enabled = true  #开启限流
+zuul.ratelimit.repository = redis  #指定实现方式  有 REDIS,CONSUL,JPA,BUCKET4J_JCACHE,BUCKET4J_HAZELCAST,BUCKET4J_IGNITE,BUCKET4J_INFINISPAN;   等实现方式
+                                    不同的实现方式，还需引入不同的依赖包，这里用的是redis
+zuul.ratelimit.policy-list     # 配置不同服务的限制
+
+原理:
+    1.利用两个filter来实现 RateLimitPreFilter 和 RateLimitPostFilter
+    2.不同的实现RateLimiter来实现限流机制(如 RedisRateLimiter)
+
+5.

@@ -17,13 +17,15 @@ public class TestController {
     private String port;
     @GetMapping("port")
     public BaseResult<String> test(@RequestParam("sleep") long sleep){
+        log.info("start..........................");
+        long time0 = System.currentTimeMillis();
         try {
             Thread.sleep(sleep);  //休眠
         }catch (InterruptedException e){
             log.error(e.getMessage(),e);
             return BaseResult.getResult(ResultEnum.RESULT_EXCEPTION,"");
         }
-        log.info(port);
+        log.info("end.............port:{} time:{}",port,System.currentTimeMillis() - time0);
         return BaseResult.getResult(ResultEnum.RESULT_SUCCESS,port);
 
     }
