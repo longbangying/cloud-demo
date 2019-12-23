@@ -1,0 +1,10 @@
+zipkin   数据链路
+1.zipkin 默认开启8080端口号(和server.port   不是一回事) 如果要设置端口号的话可以通过以下配置,所以zipkin server 会开两个端口
+
+#配置zipkin 的端口号及协议(默认8080 http)
+armeria:
+    ports[0]:
+      port: 8080
+      protocols:
+          - http
+2.zipkin 默认使用http 方式收集信息   也可使用kafka 方式()

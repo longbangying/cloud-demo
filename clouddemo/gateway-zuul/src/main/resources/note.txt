@@ -22,4 +22,18 @@ zuul.ratelimit.policy-list     # 配置不同服务的限制
     1.利用两个filter来实现 RateLimitPreFilter 和 RateLimitPostFilter
     2.不同的实现RateLimiter来实现限流机制(如 RedisRateLimiter)
 
-5.
+5.zuul 重试   需搭配 spring-retry 实现
+zuul.retries.enabled=true   #开启重试
+zuul默认会找集群中下一个机器重试,但也可通过配置 ribbon.maxAutoRetries=1 来配置同台机器重试()
+
+
+hystrix:
+1.加入依赖 spring-cloud-starter-hystrix-dashboard
+2.启动类加 @EnableHystrixDashboard
+3.访问 http://localhost:8088/hystrix   或者  http://localhost:8088/hystrix/monitor?stream=stream地址&title=test(如:http://localhost:8088/actuator/hystrix.stream)
+4.http://localhost:8088/actuator/hystrix.stream  弱这个页面一直 "ping",对业务接口发起一次请求即可
+5.http://localhost:8088/hystrix/monitor?stream=stream地址&title=test  这个页面默认 Thread Pools 栏会一直处在Loading 状态,
+    因为hystrix 的隔离策略默认是 SEMAPHORE,通过配置 zuul.ribbon-isolation-strategy=thread  修改为thread
+    通过 zuul.threadPool.useSeparateThreadPools=true  配置每个路由使用独立的线程池
+
+

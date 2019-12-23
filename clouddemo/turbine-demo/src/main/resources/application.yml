@@ -1,0 +1,19 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: turbine-demo
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:80/eureka/
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+turbine:
+  app-config: consumer1,gateway-zuul,provider-demo,zipkin-server
+  #cluster-name-expression: metadata['default']
+  combine-host-port: true
+  #aggregator:
+  #  cluster-config: xbang
+

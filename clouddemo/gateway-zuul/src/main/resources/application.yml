@@ -6,12 +6,25 @@ spring:
     host: 47.104.171.254
     port: 6379
     password: redis
-
+  zipkin:
+    base-url: http://localhost:8080
+    #sender:
+    #  type: kafka
+    #kafka:
+     # topic: xbang
+  #kafka:
+  #  bootstrapServers: 47.104.171.254:9092
+  sleuth:
+    sampler:
+      probability: 1.0
 
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:80/eureka/
+  instance:
+    metadata-map:
+      cluster: xbang
 server:
   port: 8088
 
@@ -22,6 +35,13 @@ management:
         include: "*"
 
 zuul:
+  #设置Hystrix隔离策略为线程池
+  ribbon-isolation-strategy: thread
+  thread-pool:
+    #每个路由使用独立的线程池
+    use-separate-thread-pools: true
+    #线程名的前缀(这样线程的名字的格式就是    xbang-服务ID)
+    thread-pool-key-prefix: xbang-
   #该项配置为true时   只要调用时加上参数 debug=true  则zuul会在响应头中写入一些调试信息
   include-debug-header: true
   #开启重试机制
@@ -34,7 +54,7 @@ zuul:
       # provider 每分钟可以调3次
       provider-demo[0]:
           refreshInterval: 60
-          limit: 30
+          limit: 1000
       # consumer1 每分钟可以调10次
       consumer1[0]:
           refreshInterval: 60
@@ -52,6 +72,7 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 10000
+
 #ribbon 超时配置   应该小于等于 hystrix 的超时时间
 ribbon:
   #请求连接超时时间
@@ -59,7 +80,7 @@ ribbon:
   #请求处理超时时间
   #readTimeout: 8000
   #重试次数 maxAutoRetries 表示访问服务集群原节点(同一台服务器)
-  maxAutoRetries: 2
+  #maxAutoRetries: 2
   #重试次数 maxAutoRetriesNextServer 表示访问服务集群下其余节点(换一个服务器)
   #maxAutoRetriesNextServer: 1
 
