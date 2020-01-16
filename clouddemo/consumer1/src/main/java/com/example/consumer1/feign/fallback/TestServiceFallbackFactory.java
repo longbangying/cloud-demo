@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class TestServiceFallbackFactory implements FallbackFactory<TestService> {
+public class  TestServiceFallbackFactory implements FallbackFactory<TestService> {
 
     @Override
     public TestService create(Throwable throwable) {

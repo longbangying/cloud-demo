@@ -10,7 +10,7 @@ spring:
       server:
         git:
           uri: https://github.com/longbangying/config-center.git
-          search-paths: eureka-server,provider-demo
+          search-paths: eureka-server,provider-demo,config-client-demo
           #search-paths: /**   # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开
 eureka:
   client:

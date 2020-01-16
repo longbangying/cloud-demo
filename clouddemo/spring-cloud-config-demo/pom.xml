@@ -9,23 +9,17 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>oauth2-memory</artifactId>
-
-    <description>oauth2 demo</description>
-
+    <artifactId>spring-cloud-config-demo</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>spring-cloud-config-server</module>
+        <module>spring-cloud-config-client</module>
+    </modules>
+    <description>spring-cloud-config-demo</description>
     <dependencies>
-
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
-        </dependency>
-
     </dependencies>
-
 </project>

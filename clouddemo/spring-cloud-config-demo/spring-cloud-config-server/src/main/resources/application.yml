@@ -1,0 +1,12 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/longbangying/{application}.git
+          #search-paths: eureka-server,provider-demo,config-client-demo
+          search-paths: /**   # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开

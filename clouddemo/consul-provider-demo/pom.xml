@@ -9,23 +9,22 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.example</groupId>
-    <artifactId>oauth2-memory</artifactId>
+    <artifactId>consul-provider-demo</artifactId>
 
-    <description>oauth2 demo</description>
+    <description>consul provider demo</description>
+
 
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-oauth2</artifactId>
+            <artifactId>spring-cloud-starter-consul-discovery</artifactId>
+            <version>2.1.4.RELEASE</version>
         </dependency>
+
 
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-dependencies</artifactId>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
     </dependencies>
-
 </project>
