@@ -7,6 +7,47 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/longbangying/{application}.git
+          #{application}是占位符 代表应用名，当客户端向Config Server发起获取配置的请求时，Config Server会根据客户端的Spring.application.name信息来填充{application}占位符以定位配置资源的存储位置，实现根据微服务应用属性动态获取不同位置的配置
+          uri: https://github.com/longbangying/cloud-config-center.git
           #search-paths: eureka-server,provider-demo,config-client-demo
-          search-paths: /**   # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开
+          search-paths: /**   # 指定搜索根路径下的所有目录，若有多个路径使用逗号隔开paths
+          repos:
+            dev:
+              uri: https://github.com/longbangying/config-center.git
+              pattern: dev/{application}/*
+            prd:
+              uri: https://github.com/longbangying/config-center.git
+              pattern: prd/{application}/*
+            xbang:
+              uri: https://github.com/longbangying/config-center.git
+              pattern: config-client-demo/demo*
+    bus:
+      refresh:
+        enabled: true
+  kafka:
+    bootstrap-servers: 47.104.171.254:9092
+    consumer:
+      group-id: spring-cloud-bus
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          config:
+            server: trace
+#端点配置
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+
+#eureka配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:80/eureka

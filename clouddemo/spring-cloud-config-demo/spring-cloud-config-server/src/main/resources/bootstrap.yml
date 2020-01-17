@@ -1,1 +1,6 @@
 #bootstrap.yml 比application.yml 先加载
+# curl http://localhost:9090/encrypt -d Soar18786611964   加密数据
+#curl http://localhost:9090/decrypt -d 91c31e6407bc9aab475cdb4949a58158ec968f6827d732a203a32059e0732635   解密数据
+# curl http://localhost:9090/encrypt/status    查看加密功能状态
+encrypt:
+    key: c3aa830370524777a2a180c714ba8e4e
