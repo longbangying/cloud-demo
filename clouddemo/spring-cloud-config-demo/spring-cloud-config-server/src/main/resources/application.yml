@@ -21,12 +21,16 @@ spring:
             xbang:
               uri: https://github.com/longbangying/config-center.git
               pattern: config-client-demo/demo*
+    #打开 /actuator/bus-refresh 端点   打开这个端点之后，当有多个服务的时候，就不用挨个的调用 /actuator/refresh 进行刷新
+    #只需要调一次 /actuator/bus-refresh 端点就行了(config-server或者config-client 中的一个就可)
     bus:
       refresh:
         enabled: true
   kafka:
+    #指定kafka 地址
     bootstrap-servers: 47.104.171.254:9092
     consumer:
+      #
       group-id: spring-cloud-bus
 
 logging:
